@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mari Nobar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#080b14;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:16px 40px;
+  background:rgba(5,8,15,.95);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+  font-size:30px;
+  font-weight:800;
+  color:#ff2f6d;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+nav a{
+  color:#cbd5e1;
+  text-decoration:none;
+  transition:.3s;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.search{
+  padding:11px 16px;
+  border:none;
+  border-radius:999px;
+  background:#151d31;
+  color:white;
+  outline:none;
+  width:220px;
+}
+
+/* HERO */
+
+.hero{
+  height:100vh;
+  background:
+  linear-gradient(to right,rgba(0,0,0,.92),rgba(0,0,0,.4)),
+  url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop') center/cover;
+  display:flex;
+  align-items:center;
+  padding:0 60px;
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.hero h1{
+  font-size:72px;
+  line-height:1.1;
+  margin-bottom:24px;
+}
+
+.hero p{
+  color:#cbd5e1;
+  line-height:1.8;
+  margin-bottom:30px;
+  font-size:18px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:16px;
+}
+
+.btn{
+  padding:14px 24px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:#ff2f6d;
+  color:white;
+}
+
+.btn-primary:hover{
+  background:#ff145d;
+  transform:translateY(-3px);
+}
+
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  color:white;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,.15);
+}
+
+/* SECTION */
+
+section{
+  padding:70px 40px;
+}
+
+.section-title{
+  font-size:34px;
+  margin-bottom:30px;
+}
+
+/* MOVIE GRID */
+
+.movie-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+}
+
+.movie-card{
+  background:#101827;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.movie-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 45px rgba(0,0,0,.4);
+}
+
+.movie-card::after{
+  content:'HD';
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:#ff2f6d;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.movie-card img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+}
+
+.movie-info{
+  padding:18px;
+}
+
+.movie-title{
+  font-size:21px;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.movie-desc{
+  color:#9ca3af;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.watch-btn{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:14px;
+  background:#ff2f6d;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.watch-btn:hover{
+  background:#ff145d;
+}
+
+/* FEATURES */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.feature{
+  background:#101827;
+  padding:30px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:40px;
+  text-align:center;
+  color:#94a3b8;
+}
+
+@media(max-width:768px){
+
+header{
+  flex-direction:column;
+  gap:15px;
+  padding:20px;
+}
+
+.hero{
+  padding:0 24px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:44px;
+}
+
+.hero-buttons{
+  flex-direction:column;
+}
+
+nav{
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.search{
+  width:100%;
+}
+
+.modal-title{
+  font-size:30px;
+}
+
+.modal-banner{
+  height:250px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🎬 Mari Nobar</div>
+
+<nav>
+  <a href="#film">Film</a>
+  <a href="#fitur">Fitur</a>
+  <a href="#footer">Tentang</a>
+
+  <input
+  type="text"
+  class="search"
+  id="searchInput"
+  placeholder="Cari film...">
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Platform Streaming Modern
+Untuk Pecinta Film
+</h1>
+
+<p>
+Nikmati pengalaman streaming modern dengan tampilan bioskop online premium.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#film" class="btn btn-primary">
+Mulai Menonton
+</a>
+
+<a href="#fitur" class="btn btn-secondary">
+Lihat Fitur
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FILM -->
+
+<section id="film">
+
+<h2 class="section-title">
+🔥 Trending Hari Ini
+</h2>
+
+<div class="movie-grid" id="movieGrid">
+</div>
+
+</section>
+
+<!-- FITUR -->
+
+<section id="fitur">
+
+<h2 class="section-title">
+✨ Fitur Platform
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>🎨 Modern UI</h3>
+<p>Tampilan modern seperti platform streaming premium.</p>
+</div>
+
+<div class="feature">
+<h3>📱 Responsive</h3>
+<p>Nyaman digunakan di HP maupun desktop.</p>
+</div>
+
+<div class="feature">
+<h3>⚡ Cepat</h3>
+<p>Video diputar langsung dari file milik sendiri.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footer">
+
+<h2 style="margin-bottom:10px;">
+🎬 Mari Nobar
+</h2>
+
+<p>
+© 2026 Mari Nobar
+</p>
+
+</footer>
+
+<script>
+
+/* =========================
+   DATA FILM
+========================= */
+
+const movies = [
+
+{
+title:"Fast & Furious Tokyo Drift",
+desc:"Sean Boswell masuk ke dunia drift ilegal Tokyo.",
+image:"the-fast-and-the-furious-tokyo-drift-2006.jpg",
+link:"https://play.domainkamu.com/player.html?movie=tokyodrift"
+},
+
+{
+title:"The Fast & Furious",
+desc:"Brian menyusup ke geng balap Dom Toretto.",
+image:"images.jpg",
+link:"https://play.domainkamu.com/player.html?movie=fast1"
+},
+
+{
+title:"F9 Fast & Furious 9",
+desc:"Dom melawan saudara kandungnya sendiri.",
+image:"F9TheFastSaga_keyart_mobile_3840x2160.jpg",
+link:"https://play.domainkamu.com/player.html?movie=fast9"
+},
+
+{
+title:"Sniper Legacy",
+desc:"Brandon menerima kabar bahwa ayahnya adalah korban berikutnya.",
+image:"images (1).jpg",
+link:"https://play.domainkamu.com/player.html?movie=sniperlegacy"
+},
+
+{
+title:"Godzilla vs Kong",
+desc:"Godzilla dan Kong bertarung demi nasib dunia.",
+image:"Godzilla-vs-kong-news-poster-us2.jpg",
+link:"https://play.domainkamu.com/player.html?movie=godzillavskong"
+},
+
+{
+title:"Panor 2",
+desc:"Kehidupan Panor mulai terganggu oleh masa lalunya.",
+image:"images (2).jpg",
+link:"https://play.domainkamu.com/player.html?movie=panor2"
+},
+
+{
+title:"Ong Bak",
+desc:"Patung Buddha suci dicuri oleh mafia.",
+image:"hq720.jpg",
+link:"https://play.domainkamu.com/player.html?movie=ongbak"
+},
+
+{
+title:"Joker",
+desc:"Arthur Fleck perlahan berubah menjadi Joker.",
+image:"udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+link:"https://play.domainkamu.com/player.html?movie=joker"
+}
+
+];
+
+/* =========================
+   TAMPILKAN FILM
+========================= */
+
+const movieGrid = document.getElementById('movieGrid');
+
+function renderMovies(data){
+
+movieGrid.innerHTML = "";
+
+data.forEach(movie => {
+
+movieGrid.innerHTML += `
+
+<div class="movie-card">
+
+<img src="${movie.image}">
+ 
+<div class="movie-info">
+
+<div class="movie-title">
+${movie.title}
+</div>
+
+<div class="movie-desc">
+${movie.desc}
+</div>
+
+<button
+class="watch-btn"
+onclick="window.location.href='${movie.link}'">
+▶ Tonton Film
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+renderMovies(movies);
+
+/* =========================
+   SEARCH FILM
+========================= */
+
+document.getElementById('searchInput')
+.addEventListener('keyup', function(){
+
+const keyword = this.value.toLowerCase();
+
+const filtered = movies.filter(movie =>
+movie.title.toLowerCase().includes(keyword)
+);
+
+renderMovies(filtered);
+
+});
+
+
+
+</script>
+
+</body>
+</html>
